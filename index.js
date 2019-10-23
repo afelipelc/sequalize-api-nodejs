@@ -6,6 +6,7 @@ const cors = require('cors');
 // Configuración y Modelos BD
 const db = require('./config/db');
     require('./models/Customer');
+    require('./models/Product');
 
 // ésto hace que se sincronice la estructura de los models (tablas) importados ok ok ok goood
 // de lo contrario se produce: no existe la tabla customers, etc

@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const customersController = require('../controllers/CustomersController');
-//const productsController = require('../controllers/productsController');
-//const ordersController = require('../controllers/ordersController');
+const productsController = require('../controllers/ProductsController');
+const ordersController = require('../controllers/OrdersController');
 
 module.exports = function() {
   // ### Customers ###
@@ -19,27 +19,29 @@ module.exports = function() {
   // delete: customer
   router.delete('/customers/:id', customersController.delete);
 
-  /*
+  
   // ### Products ###
   // post: add new product
   router.post('/products', 
-    // productsController.fileUpload,
+    productsController.imageUpload,
     productsController.add
   );
 
-  */
-  /*
+  
   // get: all products
-  router.get('/products', productsController.products);
+  router.get('/products', productsController.list);
   // get: product by :id
   router.get('/products/:id', productsController.show);
   // put: update product
   router.put('/products/:id',
-    productsController.fileUpload,
+    productsController.imageUpload,
     productsController.update
   );
   // delete: product
   router.delete('/products/:id', productsController.delete);
+  // find product
+  router.post('/products/search/:query', productsController.search);
+
 
   // ### Orders ###
   // post: add new order
@@ -52,6 +54,7 @@ module.exports = function() {
   router.put('/orders/:id', ordersController.update);
   // delete: product
   router.delete('/orders/:id', ordersController.delete);
-*/
+  // get: orders by customer
+  router.get('/orders/by_customer/:customer', ordersController.by_customer);
   return router;
 }

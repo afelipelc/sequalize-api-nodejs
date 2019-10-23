@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db');
 
-const Customers = db.define('customer', {
+const Customer = db.define('customer', {
   id: {
       type: Sequelize.INTEGER,
       primaryKey : true,
@@ -29,4 +29,4 @@ const Customers = db.define('customer', {
 );
 
 
-module.exports = Customers;
+module.exports = Customer;
